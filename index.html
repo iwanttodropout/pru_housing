@@ -90,6 +90,8 @@
     .visual-image-wrapper {
       position: relative;
       display: inline-block;
+      max-width: 400px;
+      flex: 1 1 300px;
     }
     form {
       display: flex;
@@ -140,7 +142,7 @@
       border-radius: 8px;
       font-family: 'Inter', sans-serif;
     }
-    .fire-stats h3 {
+    .fire-stats p {
       margin-bottom: 0.5rem;
     }
     #progress-bar {
@@ -162,17 +164,13 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #b22222;
       box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
-      margin: 20px auto;
-    }
-    .fire-extinguisher-info h4 {
-      font-size: 1.25rem;
-      margin-top: 15px;
-      margin-bottom: 10px;
-      color: #ff1a1a;
+      margin: 0; /* removed auto margin for flex */
+      flex: 1 1 300px;
     }
     .fire-extinguisher-info p {
       font-size: 1rem;
       font-weight: 600;
+      margin-bottom: 1rem;
     }
     .fire-extinguisher-info ul {
       list-style-type: disc;
@@ -182,6 +180,15 @@
     }
     .fire-extinguisher-info li {
       margin-bottom: 8px;
+    }
+    .flex-container {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
     }
   </style>
 </head>
@@ -199,7 +206,6 @@
   </section>
 
   <section class="fire-stats" data-aos="fade-up">
-    <h3>🔥 Fire Safety Stats Update</h3>
     <p>Singapore fire cases rose by about <strong>5%</strong> last year, with ~4,200 incidents in 2024 compared to 4,000 in 2023. Residential fires remain the top cause.</p>
     <p>Average loss per residential fire is estimated at <strong>S$20,000–30,000</strong> — protecting your home pays off big time.</p>
   </section>
@@ -207,24 +213,25 @@
   <section class="visual" data-aos="fade-up">
     <h2 class="section-title">Protect What Matters Most to You</h2>
 
-    <section class="fire-extinguisher-info">
-      <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
+    <div class="flex-container">
+      <section class="fire-extinguisher-info">
+        <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
+        <ul>
+          <li>2kg Dry-Powder AB extinguisher</li>
+          <li>Fights wood, petrol, and electrical fires (Class A, B, C)</li>
+          <li>Sprays ~11 seconds with 3m+ reach</li>
+          <li>Nitrogen pressure for reliable use</li>
+          <li>Compact size, big power</li>
+          <li>Your go-to when fire tries to party 🔥</li>
+        </ul>
+      </section>
 
-      <h4>Quick facts:</h4>
-      <ul>
-        <li>2kg Dry-Powder AB extinguisher</li>
-        <li>Fights wood, petrol, and electrical fires (Class A, B, C)</li>
-        <li>Sprays ~11 seconds with 3m+ reach</li>
-        <li>Nitrogen pressure for reliable use</li>
-        <li>Compact size, big power</li>
-        <li>Your go-to when fire tries to party 🔥</li>
-      </ul>
-    </section>
-
-    <div class="visual-image-wrapper">
-      <span class="badge">FREE with Policy</span>
-      <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
+      <div class="visual-image-wrapper">
+        <span class="badge">FREE with Policy</span>
+        <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
+      </div>
     </div>
+
     <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
   </section>
 
