@@ -3,168 +3,235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Car Insurance + Free Diffuser</title>
+  <title>Home Insurance + Free Fire Extinguisher</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f8fa;
+      background: #fdfbfb url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
       color: #333;
+      line-height: 1.6;
     }
-    header {
-      background: linear-gradient(to right, #ff6a00, #ffb347);
-      padding: 20px;
-      color: white;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    section {
-      padding: 20px;
+    header, section, footer {
+      padding: 2rem 1rem;
       max-width: 800px;
       margin: auto;
+    }
+    header {
+      background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
+      text-align: center;
+      padding: 3rem 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-button {
+      background-color: #FF3366;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulse 1.8s infinite;
+      display: inline-block;
+      transition: 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ffd700;
+      color: #000;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); }
+    }
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .visual img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 1rem 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .visual-image-wrapper {
+      position: relative;
+      display: inline-block;
     }
     form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      gap: 1rem;
+      margin-top: 1rem;
     }
-    input, button {
-      padding: 10px;
+    form input, form button {
+      padding: 0.75rem;
       font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s ease;
     }
-    button {
-      background: #ff6a00;
-      color: white;
+    form input:focus, form button:hover {
+      outline: none;
+      border-color: #A1C4FD;
+      box-shadow: 0 0 8px #A1C4FD44;
+    }
+    form button {
+      background-color: #FF3366;
       border: none;
-      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
       cursor: pointer;
     }
-    button:hover {
-      background: #e65c00;
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.5rem;
     }
-    .progress-bar {
-      height: 4px;
-      background: #ff6a00;
+    .news-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1rem auto;
+      padding: 0.75rem 1rem;
+      background: #ffeef0;
+      border-left: 4px solid #ff3366;
+      max-width: 800px;
+    }
+    /* Scroll Progress Bar */
+    #progress-bar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 0;
-      z-index: 9999;
-    }
-    .success-message, .error-message {
-      display: none;
-      padding: 10px;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .success-message {
-      background: #d4edda;
-      color: #155724;
-    }
-    .error-message {
-      background: #f8d7da;
-      color: #721c24;
+      height: 4px;
+      background: #8ec5fc;
+      width: 0%;
+      z-index: 999;
+      transition: width 0.2s ease;
     }
   </style>
 </head>
 <body>
-
-  <!-- Progress Bar -->
-  <div class="progress-bar" id="progressBar"></div>
+  <!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
 
   <header data-aos="fade-down">
-    <h1>Get Car Insurance + Free Diffuser</h1>
-    <p>Protect your car & home, inspired by recent Toa Payoh fire safety awareness</p>
+    <h1>Protect Your Home — Breathe Easy</h1>
+    <p>Get a <strong>FREE Fire Extinguisher</strong> with your Home Insurance plan.</p>
+    <a href="#quote-form" class="cta-button">Secure Yours Now</a>
   </header>
 
-  <section data-aos="fade-up">
-    <form id="quoteForm">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="tel" name="contact" placeholder="Contact Number" required />
-
-      <label>
-        <input type="checkbox" name="agree" required />
-        I agree to the terms & conditions.
-      </label>
-
-      <input type="text" name="_gotcha" style="display:none" />
-
-      <button type="submit">Get My Quote</button>
-
-      <div class="success-message" id="successMessage">Your request has been sent! 🎉</div>
-      <div class="error-message" id="errorMessage">Something went wrong. Please try again.</div>
-    </form>
+  <section class="news-note" data-aos="fade-up">
+    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential.</p>
   </section>
 
+  <section class="visual" data-aos="fade-up">
+    <h2 class="section-title">Quick & Powerful Protection</h2>
+    <div class="visual-image-wrapper">
+      <span class="badge">FREE with Policy</span>
+      <img src="https://via.placeholder.com/400x300.png?text=Fire+Extinguisher" alt="Fire Extinguisher" />
+    </div>
+    <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
+  </section>
+
+  <section id="quote-form" data-aos="zoom-in">
+    <h2 class="section-title">Get Covered Instantly</h2>
+    <form id="quoteForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="contact" placeholder="Contact Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="_gotcha" style="display:none" />
+      <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+        <input type="checkbox" name="consent" required /> 
+        <span class="small">By submitting, I agree to be contacted about insurance offers.</span>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <p class="disclaimer">*We respect your privacy. No spam, ever.</p>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    // Scroll progress bar
-    window.addEventListener("scroll", () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
-      document.getElementById("progressBar").style.width = progress + "%";
-    });
-
-    // Form submission handler
-    document.getElementById('quoteForm').addEventListener('submit', async function (e) {
+    document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const form = e.target;
-      const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        contact: form.contact.value
-      };
+
+      // Honeypot check
+      if (form._gotcha.value) {
+        console.warn('Bot submission blocked.');
+        return;
+      }
+
+      const payload = new URLSearchParams({
+        name: form.name.value.trim(),
+        contact: form.contact.value.trim(),
+        email: form.email.value.trim(),
+        postal: form.postal ? form.postal.value.trim() : '',
+        source: 'HomeInsurance_Landing'
+      });
 
       try {
-        const response = await fetch(
-          "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", 
-          {
-            method: "POST",
-            mode: "cors", // Ensure CORS is allowed in your GAS
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-          }
-        );
+        const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload.toString()
+        });
 
-        if (response.ok) {
+        if (res.ok) {
+          alert('Thanks! You’re on our list. We’ll reach out ASAP.');
           form.reset();
-          document.getElementById('successMessage').style.display = 'block';
-          document.getElementById('errorMessage').style.display = 'none';
         } else {
-          throw new Error("Network response was not ok");
+          const errorText = await res.text();
+          throw new Error(errorText || 'Error submitting');
         }
-      } catch (error) {
-        document.getElementById('successMessage').style.display = 'none';
-        document.getElementById('errorMessage').style.display = 'block';
+      } catch (err) {
+        alert('Oops! Something went wrong. Please try again.');
+        console.error(err);
       }
     });
 
-    /* 
-      📌 Google Apps Script must return:
-      return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))
-        .setMimeType(ContentService.MimeType.JSON)
-        .setHeader("Access-Control-Allow-Origin", "*");
-    */
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrollPercent + '%';
+    });
   </script>
 </body>
 </html>
