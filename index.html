@@ -1,112 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home Insurance — Free Fire Extinguisher</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Insurance + Free Fire Extinguisher</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
   <style>
-    :root{
-      --accent:#FF2E2E;
-      --bg:#0f1720;
-      --card:#111827;
-      --text:#ffffff;
-      font-family: Inter, system-ui, Arial, sans-serif;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fdfbfb url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+      color: #333;
+      line-height: 1.6;
     }
-    body{ margin:0; background:linear-gradient(180deg,#071122 0%, #0f1720 100%); color:var(--text); display:flex; align-items:center; justify-content:center; height:100vh;}
-    .card{ width:920px; max-width:92vw; background:rgba(255,255,255,0.03); padding:28px; border-radius:14px; box-shadow:0 6px 30px rgba(0,0,0,0.5); display:grid; grid-template-columns:1fr 380px; gap:20px; align-items:center;}
-    .left{ padding:12px; }
-    h1{ font-family: 'Anton', sans-serif; font-size:34px; margin:0 0 10px; letter-spacing:0.5px; }
-    p.lead{ margin:0 0 18px; opacity:0.95; }
-    .video{ width:100%; height:200px; border-radius:8px; overflow:hidden; background:#222; display:flex; align-items:center; justify-content:center; color:#bbb; }
-    .form{ background:rgba(255,255,255,0.02); padding:16px; border-radius:10px; }
-    .form input, .form select, .form textarea{ width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text); }
-    .btn{ display:inline-block; padding:12px 14px; background:var(--accent); color:white; border-radius:8px; border:none; cursor:pointer; font-weight:700; }
-    .small{ font-size:13px; opacity:0.9; }
-    .right { text-align:center; padding:12px; }
-    .fire-ext{ background:#fff; color:var(--accent); padding:10px 12px; border-radius:8px; font-weight:800; display:inline-block; margin-top:8px; }
-    .notice{ font-size:12px; opacity:0.8; margin-top:8px;}
+    header, section, footer {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    header {
+      background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
+      text-align: center;
+      padding: 3rem 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-button {
+      background-color: #FF3366;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulse 1.8s infinite;
+      display: inline-block;
+      transition: 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ffd700;
+      color: #000;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); }
+    }
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .visual img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 1rem 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .visual-image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    form input, form button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+    form input:focus, form button:hover {
+      outline: none;
+      border-color: #A1C4FD;
+      box-shadow: 0 0 8px #A1C4FD44;
+    }
+    form button {
+      background-color: #FF3366;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+    .news-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1rem 0;
+      background: #ffeef0;
+      padding: 0.75rem;
+      border-left: 4px solid #ff3366;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="left">
-      <h1>What’s your backup plan?</h1>
-      <p class="lead">Free fire extinguisher when you sign up for our Home Insurance plan. Quick cover, zero drama.</p>
+  <header data-aos="fade-down">
+    <h1>Protect Your Home — Breathe Easy</h1>
+    <p>Get a <strong>FREE Fire Extinguisher</strong> with your Home Insurance plan.</p>
+    <a href="#quote-form" class="cta-button">Secure Yours Now</a>
+  </header>
 
-      <div class="video">
-        <!-- Replace with your 5-6s Canva exported mp4 or gif -->
-        <video width="100%" height="100%" autoplay muted loop playsinline>
-          <source src="canva-ad.mp4" type="video/mp4">
-          <!-- fallback static image -->
-          <img src="ad-still.jpg" alt="Free fire extinguisher">
-        </video>
-      </div>
+  <section class="news-note" data-aos="fade-up">
+    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential. :contentReference[oaicite:0]{index=0}</p>
+  </section>
 
-      <div style="height:12px"></div>
-
-      <div class="form">
-        <form id="quoteForm">
-          <input name="name" placeholder="Full name" required />
-          <input name="email" type="email" placeholder="Email" required />
-          <input name="phone" placeholder="Phone (e.g. +65XXXXXXXX)" required />
-          <input name="postal" placeholder="Postal code" />
-          <textarea name="note" rows="3" placeholder="Message (optional)"></textarea>
-
-          <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
-            <input type="checkbox" name="consent" required /> <span class="small">I agree to be contacted about insurance offers.</span>
-          </label>
-
-          <button class="btn" type="submit">Get My Free Extinguisher</button>
-          <div id="status" class="notice"></div>
-        </form>
-      </div>
+  <section class="visual" data-aos="fade-up">
+    <h2 class="section-title">Quick & Powerful Protection</h2>
+    <div class="visual-image-wrapper">
+      <span class="badge">FREE with Policy</span>
+      <img src="https://via.placeholder.com/400x300.png?text=Fire+Extinguisher" alt="Fire Extinguisher" />
     </div>
+    <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
+  </section>
 
-    <div class="right">
-      <div style="font-size:13px; opacity:0.85;">Instant protection</div>
-      <div class="fire-ext">FREE Fire Extinguisher</div>
-      <p class="small">Valid for new policies only. T&Cs apply.</p>
-      <div style="height:20px"></div>
-      <img src="extinguisher.png" alt="fire extinguisher" style="width:160px;border-radius:8px">
-    </div>
-  </div>
+  <section id="quote-form" data-aos="zoom-in">
+    <h2 class="section-title">Get Covered Instantly</h2>
+    <form id="quoteForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="contact" placeholder="Contact Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="postal" placeholder="Postal Code" />
+      <input type="text" name="_gotcha" style="display:none" />
+      <button type="submit">Submit</button>
+    </form>
+    <p class="disclaimer">*We respect your privacy. No spam, ever.</p>
+  </section>
 
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec";
+    AOS.init();
 
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const status = document.getElementById('status');
-      status.textContent = 'Sending...';
-
       const form = e.target;
-      const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        postal: form.postal.value.trim(),
-        note: form.note.value.trim(),
-        source: 'Canva-ad-landing'
-      };
+      const data = new URLSearchParams({
+        name: form.name.value,
+        contact: form.contact.value,
+        email: form.email.value,
+        postal: form.postal.value,
+        source: 'HomeInsurance_Landing'
+      });
 
       try {
-        const res = await fetch(scriptURL, {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString()
         });
 
-        if (!res.ok) throw new Error('Network response not OK');
-
-        // Quick WhatsApp shortcut preview for the salesperson (optional)
-        const waLink = "https://wa.me/" + encodeURIComponent(data.phone.replace(/[^0-9+]/g,'')) +
-                       "?text=" + encodeURIComponent(`Hi ${data.name || ''}, thanks for your enquiry about Home Insurance. We'll contact you shortly.`);
-
-        status.innerHTML = 'Thanks! We got your request. <br><a href="' + waLink + '" target="_blank">Open WhatsApp</a>';
-        form.reset();
-      } catch (err) {
-        console.error(err);
-        status.textContent = 'Sorry — submission failed. Try again or contact us at support.';
+        if (res.ok) {
+          alert('Thanks! You’re on our list. We’ll reach out ASAP.');
+          form.reset();
+        } else throw new Error('Error submitting');
+      } catch (_) {
+        alert('Oops! Something went wrong. Please try again.');
       }
     });
   </script>
