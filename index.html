@@ -130,6 +130,20 @@
       border-left: 4px solid #ff3366;
       max-width: 800px;
     }
+    /* Fire stats section styling */
+    .fire-stats {
+      background:#fff3cd;
+      border-left:4px solid #ffb100;
+      color:#664d03;
+      max-width: 800px;
+      margin: 1rem auto;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    .fire-stats h3 {
+      margin-bottom: 0.5rem;
+    }
     /* Scroll Progress Bar */
     #progress-bar {
       position: fixed;
@@ -140,6 +154,49 @@
       width: 0%;
       z-index: 999;
       transition: width 0.2s ease;
+    }
+
+    /* Fire extinguisher styles */
+    .fire-extinguisher-info {
+      background: #fff8f0;
+      border: 2px solid #ff4d4d;
+      border-radius: 12px;
+      padding: 20px 25px;
+      max-width: 400px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #b22222;
+      box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
+      margin: 20px auto;
+    }
+
+    .fire-extinguisher-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .fire-extinguisher-info h4 {
+      font-size: 1.25rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      color: #ff1a1a;
+    }
+
+    .fire-extinguisher-info p {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .fire-extinguisher-info ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .fire-extinguisher-info li {
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -157,11 +214,33 @@
     <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential.</p>
   </section>
 
+  <section class="fire-stats" data-aos="fade-up">
+    <h3>🔥 Fire Safety Stats Update</h3>
+    <p>Singapore fire cases rose by about <strong>5%</strong> last year, with ~4,200 incidents in 2024 compared to 4,000 in 2023. Residential fires remain the top cause.</p>
+    <p>Average loss per residential fire is estimated at <strong>S$20,000–30,000</strong> — protecting your home pays off big time.</p>
+  </section>
+
   <section class="visual" data-aos="fade-up">
     <h2 class="section-title">Quick & Powerful Protection</h2>
+
+    <section class="fire-extinguisher-info">
+      <h3>TL;DR</h3>
+      <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
+
+      <h4>Quick facts:</h4>
+      <ul>
+        <li>2kg Dry-Powder AB extinguisher</li>
+        <li>Fights wood, petrol, and electrical fires (Class A, B, C)</li>
+        <li>Sprays ~11 seconds with 3m+ reach</li>
+        <li>Nitrogen pressure for reliable use</li>
+        <li>Compact size, big power</li>
+        <li>Your go-to when fire tries to party 🔥</li>
+      </ul>
+    </section>
+
     <div class="visual-image-wrapper">
       <span class="badge">FREE with Policy</span>
-      <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" />
+      <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
     </div>
     <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
   </section>
@@ -169,37 +248,13 @@
   <section id="quote-form" data-aos="zoom-in">
     <h2 class="section-title">Get Covered Instantly</h2>
     <form id="quoteForm">
-       <form id="quoteForm">
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        required
-      />
-      <input
-        type="tel"
-        name="contact"
-        placeholder="Contact Number"
-        maxlength="8"
-        required
-        title="Enter a valid 8-digit number starting with 8 or 9"
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email Address"
-        required
-        title="Enter a valid email address"
-      />
-      <input
-        type="text"
-        name="_gotcha"
-        style="display:none"
-      />
-      <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
-        <input type="checkbox" name="consent" required /> 
-        <span class="small">By submitting, I agree to be contacted about insurance offers.</span>
-      </label>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" required title="Enter a valid 8-digit number starting with 8 or 9" />
+      <input type="email" name="email" placeholder="Email Address" required title="Enter a valid email address" />
+      <input type="text" name="_gotcha" style="display:none" />
+      <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
+        By submitting this form, you agree that your personal data will be collected, used, and disclosed by us for insurance purposes, in accordance with Singapore’s PDPA.
+      </p>
       <button type="submit">Submit</button>
     </form>
     <p class="disclaimer">*We respect your privacy. No spam, ever.</p>
@@ -256,7 +311,7 @@
       document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
 
-      // Smooth scroll animation for CTA
+    // Smooth scroll animation for CTA
     document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector('#quote-form');
@@ -282,7 +337,6 @@
       }
       requestAnimationFrame(animation);
     });
-  
   </script>
 </body>
 </html>
