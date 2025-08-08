@@ -169,10 +169,33 @@
   <section id="quote-form" data-aos="zoom-in">
     <h2 class="section-title">Get Covered Instantly</h2>
     <form id="quoteForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="contact" placeholder="Contact Number" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="text" name="_gotcha" style="display:none" />
+       <form id="quoteForm">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+      />
+      <input
+        type="tel"
+        name="contact"
+        placeholder="Contact Number"
+        maxlength="8"
+        required
+        title="Enter a valid 8-digit number starting with 8 or 9"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required
+        title="Enter a valid email address"
+      />
+      <input
+        type="text"
+        name="_gotcha"
+        style="display:none"
+      />
       <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
         <input type="checkbox" name="consent" required /> 
         <span class="small">By submitting, I agree to be contacted about insurance offers.</span>
@@ -232,6 +255,34 @@
       const scrollPercent = (scrollTop / docHeight) * 100;
       document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
+
+      // Smooth scroll animation for CTA
+    document.querySelector('.cta-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector('#quote-form');
+      const startPosition = window.pageYOffset;
+      const targetPosition = target.getBoundingClientRect().top + startPosition;
+      const distance = targetPosition - startPosition;
+      const duration = 1450;
+      let start = null;
+
+      function easeInOutQuad(t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+      }
+
+      function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+      requestAnimationFrame(animation);
+    });
+  
   </script>
 </body>
 </html>
