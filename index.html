@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home Insurance — Free Fire Extinguisher</title>
+  <style>
+    :root{
+      --accent:#FF2E2E;
+      --bg:#0f1720;
+      --card:#111827;
+      --text:#ffffff;
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+    body{ margin:0; background:linear-gradient(180deg,#071122 0%, #0f1720 100%); color:var(--text); display:flex; align-items:center; justify-content:center; height:100vh;}
+    .card{ width:920px; max-width:92vw; background:rgba(255,255,255,0.03); padding:28px; border-radius:14px; box-shadow:0 6px 30px rgba(0,0,0,0.5); display:grid; grid-template-columns:1fr 380px; gap:20px; align-items:center;}
+    .left{ padding:12px; }
+    h1{ font-family: 'Anton', sans-serif; font-size:34px; margin:0 0 10px; letter-spacing:0.5px; }
+    p.lead{ margin:0 0 18px; opacity:0.95; }
+    .video{ width:100%; height:200px; border-radius:8px; overflow:hidden; background:#222; display:flex; align-items:center; justify-content:center; color:#bbb; }
+    .form{ background:rgba(255,255,255,0.02); padding:16px; border-radius:10px; }
+    .form input, .form select, .form textarea{ width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text); }
+    .btn{ display:inline-block; padding:12px 14px; background:var(--accent); color:white; border-radius:8px; border:none; cursor:pointer; font-weight:700; }
+    .small{ font-size:13px; opacity:0.9; }
+    .right { text-align:center; padding:12px; }
+    .fire-ext{ background:#fff; color:var(--accent); padding:10px 12px; border-radius:8px; font-weight:800; display:inline-block; margin-top:8px; }
+    .notice{ font-size:12px; opacity:0.8; margin-top:8px;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <h1>What’s your backup plan?</h1>
+      <p class="lead">Free fire extinguisher when you sign up for our Home Insurance plan. Quick cover, zero drama.</p>
+
+      <div class="video">
+        <!-- Replace with your 5-6s Canva exported mp4 or gif -->
+        <video width="100%" height="100%" autoplay muted loop playsinline>
+          <source src="canva-ad.mp4" type="video/mp4">
+          <!-- fallback static image -->
+          <img src="ad-still.jpg" alt="Free fire extinguisher">
+        </video>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="form">
+        <form id="quoteForm">
+          <input name="name" placeholder="Full name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="phone" placeholder="Phone (e.g. +65XXXXXXXX)" required />
+          <input name="postal" placeholder="Postal code" />
+          <textarea name="note" rows="3" placeholder="Message (optional)"></textarea>
+
+          <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+            <input type="checkbox" name="consent" required /> <span class="small">I agree to be contacted about insurance offers.</span>
+          </label>
+
+          <button class="btn" type="submit">Get My Free Extinguisher</button>
+          <div id="status" class="notice"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="right">
+      <div style="font-size:13px; opacity:0.85;">Instant protection</div>
+      <div class="fire-ext">FREE Fire Extinguisher</div>
+      <p class="small">Valid for new policies only. T&Cs apply.</p>
+      <div style="height:20px"></div>
+      <img src="extinguisher.png" alt="fire extinguisher" style="width:160px;border-radius:8px">
+    </div>
+  </div>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec";
+
+    document.getElementById('quoteForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('status');
+      status.textContent = 'Sending...';
+
+      const form = e.target;
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        postal: form.postal.value.trim(),
+        note: form.note.value.trim(),
+        source: 'Canva-ad-landing'
+      };
+
+      try {
+        const res = await fetch(scriptURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) throw new Error('Network response not OK');
+
+        // Quick WhatsApp shortcut preview for the salesperson (optional)
+        const waLink = "https://wa.me/" + encodeURIComponent(data.phone.replace(/[^0-9+]/g,'')) +
+                       "?text=" + encodeURIComponent(`Hi ${data.name || ''}, thanks for your enquiry about Home Insurance. We'll contact you shortly.`);
+
+        status.innerHTML = 'Thanks! We got your request. <br><a href="' + waLink + '" target="_blank">Open WhatsApp</a>';
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        status.textContent = 'Sorry — submission failed. Try again or contact us at support.';
+      }
+    });
+  </script>
+</body>
+</html>
