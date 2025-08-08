@@ -124,12 +124,13 @@
     .news-note {
       font-size: 0.9rem;
       color: #555;
-      margin: 1rem auto:
+      margin: 1rem auto;
       padding: 0.75rem 1rem;
       background: #ffeef0;
       border-left: 4px solid #ff3366;
+      max-width: 800px;
     }
-     /* Scroll Progress Bar */
+    /* Scroll Progress Bar */
     #progress-bar {
       position: fixed;
       top: 0;
@@ -143,18 +144,17 @@
   </style>
 </head>
 <body>
-   <!-- Scroll Progress Bar -->
+  <!-- Scroll Progress Bar -->
   <div id="progress-bar"></div>
-  
+
   <header data-aos="fade-down">
     <h1>Protect Your Home — Breathe Easy</h1>
     <p>Get a <strong>FREE Fire Extinguisher</strong> with your Home Insurance plan.</p>
     <a href="#quote-form" class="cta-button">Secure Yours Now</a>
   </header>
 
-  
   <section class="news-note" data-aos="fade-up">
-            <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential.</p>
+    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential.</p>
   </section>
 
   <section class="visual" data-aos="fade-up">
@@ -173,9 +173,9 @@
       <input type="tel" name="contact" placeholder="Contact Number" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <input type="text" name="_gotcha" style="display:none" />
-   <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
-            <input type="checkbox" name="consent" required /> <span class="small">By submitting, I agree to be contacted about insurance offers.</span>
-          </label>
+      <label style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+        <input type="checkbox" name="consent" required /> <span class="small">By submitting, I agree to be contacted about insurance offers.</span>
+      </label>
       <button type="submit">Submit</button>
     </form>
     <p class="disclaimer">*We respect your privacy. No spam, ever.</p>
@@ -193,7 +193,7 @@
         name: form.name.value,
         contact: form.contact.value,
         email: form.email.value,
-        postal: form.postal.value,
+        postal: form.postal ? form.postal.value : '',
         source: 'HomeInsurance_Landing'
       });
 
@@ -211,6 +211,14 @@
       } catch (_) {
         alert('Oops! Something went wrong. Please try again.');
       }
+    });
+
+    // Scroll progress bar JS
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
   </script>
 </body>
