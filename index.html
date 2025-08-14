@@ -15,22 +15,46 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       line-height: 1.6;
     }
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #8ec5fc;
+      width: 0%;
+      z-index: 999;
+      transition: width 0.2s ease;
+    }
     header, section, footer {
       padding: 2rem 1rem;
       max-width: 800px;
-      margin: auto;
+      margin: 2rem auto;
+      position: relative;
+      border-radius: 12px;
+    }
+    /* Overlay behind content */
+    header::before, .news-note::before, .fire-stats::before, .fire-extinguisher-info::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.35);
+      border-radius: 12px;
+      z-index: 0;
+    }
+    header h1, header p, .news-note p, .fire-stats p, .fire-extinguisher-info p, .fire-extinguisher-info ul {
+      position: relative;
+      z-index: 1;
     }
     header {
       background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
       text-align: center;
-      padding: 3rem 1rem;
       font-family: 'Playfair Display', serif;
-      border-radius: 12px;
     }
     header h1 {
       font-size: 2.5rem;
@@ -66,16 +90,49 @@
       margin-bottom: 1rem;
       font-family: 'Playfair Display', serif;
     }
+    .news-note {
+      background: rgba(255, 51, 102, 0.85);
+      color: #fff;
+    }
+    .fire-stats {
+      background: rgba(255, 223, 85, 0.85);
+      color: #333;
+    }
+    .fire-extinguisher-info {
+      background: linear-gradient(135deg, #FFD6E0, #FFFACD);
+      color: #333;
+      box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
+      border-radius: 12px;
+      flex: 1 1 300px;
+      position: relative;
+    }
+    .fire-extinguisher-info p {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .fire-extinguisher-info ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .fire-extinguisher-info li { margin-bottom: 8px; }
     .visual img {
       max-width: 100%;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin: 1rem 0;
       animation: float 3s ease-in-out infinite;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
+    }
+    .visual-image-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 400px;
     }
     .badge {
       position: absolute;
@@ -88,12 +145,16 @@
       border-radius: 999px;
       font-size: 0.9rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1;
     }
-    .visual-image-wrapper {
-      position: relative;
-      display: inline-block;
-      max-width: 400px;
-      flex: 1 1 300px;
+    .flex-container {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
     }
     form {
       display: flex;
@@ -120,65 +181,10 @@
       font-weight: bold;
       cursor: pointer;
     }
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: #8ec5fc;
-      width: 0%;
-      z-index: 999;
-      transition: width 0.2s ease;
-    }
-
-    .fire-extinguisher-info {
-      background: linear-gradient(135deg, #FFD6E0, #FFFACD);
-      padding: 20px 25px;
-      max-width: 400px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
-      box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
-      margin: 0;
-      flex: 1 1 300px;
-      border-radius: 12px;
-    }
-    .fire-extinguisher-info p {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .fire-extinguisher-info ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .fire-extinguisher-info li {
-      margin-bottom: 8px;
-    }
-    .flex-container {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .news-note, .fire-stats {
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      font-family: 'Inter', sans-serif;
-    }
-    .news-note {
-      background: rgba(255, 51, 102, 0.85);
-      color: #fff;
-    }
-    .fire-stats {
-      background: rgba(255, 223, 85, 0.85);
-      color: #333;
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.5rem;
     }
   </style>
 </head>
@@ -192,17 +198,15 @@
   </header>
 
   <section class="news-note" data-aos="fade-up">
-    <p>In the wake of the recent residential fire, fire safety isn't just smart—it's essential.</p>
+    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, fire safety isn't just smart—it's essential.</p>
   </section>
 
   <section class="fire-stats" data-aos="fade-up">
-    <p>Singapore fire cases rose by about <strong>5%</strong> last year, with ~4,200 incidents in 2024 compared to 4,000 in 2023. Residential fires remain the top cause.</p>
-    <p>Average loss per residential fire is estimated at <strong>S$50,000–70,000</strong> — protecting your home pays off big time.</p>
+    <p>Singapore residential fire losses can exceed <strong>S$100,000</strong> per incident — protecting your home pays off big time.</p>
   </section>
 
   <section class="visual" data-aos="fade-up">
     <h2 class="section-title">Protect What Matters Most to You</h2>
-
     <div class="flex-container">
       <section class="fire-extinguisher-info">
         <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
@@ -215,13 +219,11 @@
           <li>Your go-to when fire tries to party 🔥</li>
         </ul>
       </section>
-
       <div class="visual-image-wrapper">
         <span class="badge">FREE with Policy</span>
         <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
       </div>
     </div>
-
     <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
   </section>
 
@@ -229,7 +231,7 @@
     <h2 class="section-title">Get Covered Instantly</h2>
     <form id="quoteForm">
       <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" pattern="[89][0-9]{7}" required title="Enter a valid 8-digit number starting with 8 or 9" />
+      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" required pattern="[89]\d{7}" title="Enter an 8-digit number starting with 8 or 9" />
       <input type="email" name="email" placeholder="Email Address" required title="Enter a valid email address" />
       <input type="text" name="_gotcha" style="display:none" />
       <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
@@ -244,44 +246,31 @@
   <script>
     AOS.init();
 
-    // Form submission handler
+    // Form submission
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
-
-      if (form._gotcha.value) {
-        console.warn('Bot submission blocked.');
-        return;
-      }
-
+      if (form._gotcha.value) return;
       const payload = new URLSearchParams({
         name: form.name.value.trim(),
         contact: form.contact.value.trim(),
         email: form.email.value.trim(),
         source: 'HomeInsurance_Landing'
       });
-
       try {
         const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: payload.toString()
         });
-
         if (res.ok) {
           alert('Thanks! You’re on our list. We’ll reach out ASAP.');
           form.reset();
-        } else {
-          const errorText = await res.text();
-          throw new Error(errorText || 'Error submitting');
-        }
-      } catch (err) {
-        alert('Oops! Something went wrong. Please try again.');
-        console.error(err);
-      }
+        } else throw new Error('Submission error');
+      } catch (err) { alert('Oops! Something went wrong. Please try again.'); console.error(err); }
     });
 
-    // Scroll progress bar
+    // Scroll progress
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -298,20 +287,18 @@
       const distance = targetPosition - startPosition;
       const duration = 1450;
       let start = null;
-
       function easeInOutQuad(t, b, c, d) {
         t /= d/2;
-        if (t < 1) return c/2*t*t + b;
+        if (t<1) return c/2*t*t+b;
         t--;
-        return -c/2 * (t*(t-2) - 1) + b;
+        return -c/2*(t*(t-2)-1)+b;
       }
-
-      function animation(currentTime) {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
+      function animation(currentTime){
+        if(start===null) start=currentTime;
+        const timeElapsed=currentTime-start;
+        const run=easeInOutQuad(timeElapsed,startPosition,distance,duration);
+        window.scrollTo(0,run);
+        if(timeElapsed<duration) requestAnimationFrame(animation);
       }
       requestAnimationFrame(animation);
     });
