@@ -76,9 +76,9 @@
     @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
     .badge {
       position: absolute;
-      top: 10px;
+      top: 50%;
       left: 0;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -93,7 +93,7 @@
     form input, form button { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; transition: 0.3s ease; }
     form input:focus, form button:hover { outline: none; border-color: #A1C4FD; box-shadow: 0 0 8px #A1C4FD44; }
     form button { background-color: #FF3366; border: none; color: #fff; font-weight: bold; cursor: pointer; }
-    .disclaimer { font-size: 0.9rem; color: #222; margin-top: 0.5rem; font-weight: 600; }
+    .disclaimer { font-size: 0.9rem; color: #111; margin-top: 0.5rem; font-weight: 600; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); }
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #8ec5fc; width: 0%; z-index: 999; transition: width 0.2s ease; }
     input[name="contact"] { maxlength: 8; }
   </style>
