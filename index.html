@@ -77,7 +77,8 @@
     .badge {
       position: absolute;
       top: 10px;
-      left: -10px;
+      left: 0;
+      transform: translateX(-50%);
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -92,7 +93,7 @@
     form input, form button { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; transition: 0.3s ease; }
     form input:focus, form button:hover { outline: none; border-color: #A1C4FD; box-shadow: 0 0 8px #A1C4FD44; }
     form button { background-color: #FF3366; border: none; color: #fff; font-weight: bold; cursor: pointer; }
-    .disclaimer { font-size: 0.85rem; color: #777; margin-top: 0.5rem; }
+    .disclaimer { font-size: 0.9rem; color: #222; margin-top: 0.5rem; font-weight: 600; }
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #8ec5fc; width: 0%; z-index: 999; transition: width 0.2s ease; }
     input[name="contact"] { maxlength: 8; }
   </style>
