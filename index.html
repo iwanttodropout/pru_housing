@@ -15,7 +15,9 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #fdfbfb url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                  url('https://images.unsplash.com/photo-1597686761652-36c9f4e10d95?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
       line-height: 1.6;
     }
@@ -30,14 +32,8 @@
       padding: 3rem 1rem;
       font-family: 'Playfair Display', serif;
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    header p {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
+    header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    header p { font-size: 1.25rem; margin-bottom: 1.5rem; }
     .cta-button {
       background-color: #FF3366;
       color: #fff;
@@ -71,10 +67,7 @@
       margin: 1rem 0;
       animation: float 3s ease-in-out infinite;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
     .badge {
       position: absolute;
       top: 10px;
@@ -93,12 +86,7 @@
       max-width: 400px;
       flex: 1 1 300px;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+    form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
     form input, form button {
       padding: 0.75rem;
       font-size: 1rem;
@@ -118,11 +106,7 @@
       font-weight: bold;
       cursor: pointer;
     }
-    .disclaimer {
-      font-size: 0.85rem;
-      color: #777;
-      margin-top: 0.5rem;
-    }
+    .disclaimer { font-size: 0.85rem; color: #777; margin-top: 0.5rem; }
     .news-note {
       font-size: 0.9rem;
       color: #555;
@@ -133,18 +117,16 @@
       max-width: 800px;
     }
     .fire-stats {
-      background:#fff3cd;
-      border-left:4px solid #ffb100;
-      color:#664d03;
+      background:#fff8e1;
+      border-left:4px solid #ff9800;
+      color:#4e342e;
       max-width: 800px;
       margin: 1rem auto;
       padding: 1rem 1.5rem;
       border-radius: 8px;
       font-family: 'Inter', sans-serif;
     }
-    .fire-stats p {
-      margin-bottom: 0.5rem;
-    }
+    .fire-stats p { margin-bottom: 0.5rem; }
     #progress-bar {
       position: fixed;
       top: 0;
@@ -156,40 +138,21 @@
       transition: width 0.2s ease;
     }
     .fire-extinguisher-info {
-      background: #fff8f0;
-      border: 2px solid #ff4d4d;
-      border-radius: 0; /* rectangle */
+      background: #e3f2fd;
+      border: 2px solid #0288d1;
+      border-radius: 0;
       padding: 20px 25px;
       max-width: 400px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #b22222;
-      box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
-      margin: 0; /* removed auto margin for flex */
+      color: #01579b;
+      box-shadow: 0 4px 8px rgba(2,136,209,0.2);
+      margin: 0;
       flex: 1 1 300px;
     }
-    .fire-extinguisher-info p {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .fire-extinguisher-info ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .fire-extinguisher-info li {
-      margin-bottom: 8px;
-    }
-    .flex-container {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
+    .fire-extinguisher-info p { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+    .fire-extinguisher-info ul { list-style-type: disc; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
+    .fire-extinguisher-info li { margin-bottom: 8px; }
+    .flex-container { display: flex; gap: 2rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto 1.5rem; }
   </style>
 </head>
 <body>
@@ -207,12 +170,11 @@
 
   <section class="fire-stats" data-aos="fade-up">
     <p>Singapore fire cases rose by about <strong>5%</strong> last year, with ~4,200 incidents in 2024 compared to 4,000 in 2023. Residential fires remain the top cause.</p>
-    <p>Average loss per residential fire is estimated at <strong>S$20,000–30,000</strong> — protecting your home pays off big time.</p>
+    <p>Average loss per residential fire is estimated at <strong>S$30,000–90,000</strong> — protecting your home pays off big time.</p>
   </section>
 
   <section class="visual" data-aos="fade-up">
     <h2 class="section-title">Protect What Matters Most to You</h2>
-
     <div class="flex-container">
       <section class="fire-extinguisher-info">
         <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
@@ -225,13 +187,11 @@
           <li>Your go-to when fire tries to party 🔥</li>
         </ul>
       </section>
-
       <div class="visual-image-wrapper">
         <span class="badge">FREE with Policy</span>
         <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
       </div>
     </div>
-
     <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
   </section>
 
@@ -239,7 +199,7 @@
     <h2 class="section-title">Get Covered Instantly</h2>
     <form id="quoteForm">
       <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" required title="Enter a valid 8-digit number starting with 8 or 9" />
+      <input type="tel" name="contact" placeholder="Contact Number" pattern="^[89][0-9]{8}$" maxlength="9" required title="Enter a valid 9-digit number starting with 8 or 9" />
       <input type="email" name="email" placeholder="Email Address" required title="Enter a valid email address" />
       <input type="text" name="_gotcha" style="display:none" />
       <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
@@ -257,38 +217,24 @@
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
-
-      if (form._gotcha.value) {
-        console.warn('Bot submission blocked.');
-        return;
-      }
-
+      if (form._gotcha.value) return;
       const payload = new URLSearchParams({
         name: form.name.value.trim(),
         contact: form.contact.value.trim(),
         email: form.email.value.trim(),
-        postal: form.postal ? form.postal.value.trim() : '',
         source: 'HomeInsurance_Landing'
       });
-
       try {
         const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: payload.toString()
         });
-
         if (res.ok) {
           alert('Thanks! You’re on our list. We’ll reach out ASAP.');
           form.reset();
-        } else {
-          const errorText = await res.text();
-          throw new Error(errorText || 'Error submitting');
-        }
-      } catch (err) {
-        alert('Oops! Something went wrong. Please try again.');
-        console.error(err);
-      }
+        } else throw new Error(await res.text());
+      } catch (err) { alert('Oops! Something went wrong. Please try again.'); console.error(err); }
     });
 
     window.addEventListener('scroll', () => {
@@ -306,21 +252,8 @@
       const distance = targetPosition - startPosition;
       const duration = 1450;
       let start = null;
-
-      function easeInOutQuad(t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
-      }
-
-      function animation(currentTime) {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
+      function easeInOutQuad(t,b,c,d) { t/=d/2; if(t<1) return c/2*t*t+b; t--; return -c/2*(t*(t-2)-1)+b; }
+      function animation(currentTime) { if(start===null) start=currentTime; const timeElapsed=currentTime-start; const run=easeInOutQuad(timeElapsed,startPosition,distance,duration); window.scrollTo(0,run); if(timeElapsed<duration) requestAnimationFrame(animation); }
       requestAnimationFrame(animation);
     });
   </script>
