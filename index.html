@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home Insurance + Free Fire Extinguisher</title>
+  <title>Car Insurance + Free Diffuser</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&family=Roboto:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
@@ -13,107 +13,42 @@
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
-      color: #fff;
-      background: url('https://raw.githubusercontent.com/iwanttodropout/pru_housing/main/jiachen-lin-AIk_5-M9Uho-unsplash.jpg') center/cover no-repeat;
+      color: #333;
+      background: linear-gradient(rgba(243,243,251,0.9), rgba(243,243,251,0.9)), url('https://images.unsplash.com/photo-1502877338535-766e1452684a');
+      background-size: cover;
+      background-position: center;
       background-attachment: scroll;
     }
-    body::before {
-      content: '';
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background-color: rgba(0,0,0,0.45);
-      z-index: -1;
-    }
-    header, section, footer {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    header {
-      background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
-      text-align: center;
-      padding: 3rem 1rem;
-      font-family: 'Playfair Display', serif;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    header, section, footer { padding: 2rem 1rem; max-width: 800px; margin: auto; }
+    header { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); text-align: center; padding: 3rem 1rem; border-radius: 12px; }
     header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-    header p { font-size: 1.25rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
-    .cta-button {
-      background-color: #FF3366;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      animation: pulse 1.8s infinite;
-      display: inline-block;
-      transition: 0.3s ease;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-    .cta-button:hover { background-color: #ffd700; color: #000; }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.7); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); }
-    }
-    .section-title { font-size: 1.75rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
-    p, h2, h3, h4 { text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
-    .visual img {
-      max-width: 100%;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 1rem 0;
-      animation: float 3s ease-in-out infinite;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
-    .badge {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #ffd700;
-      color: #000;
-      font-weight: bold;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transform: translate(0%, -50%);
-    }
-    .flex-container { display: flex; gap: 2rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto 1.5rem; }
-    .fire-extinguisher-info, .fire-stats, .news-note { background-color: rgba(255,255,255,0.85); color: #333; border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .fire-extinguisher-info p { font-family: 'Roboto', sans-serif; font-weight: 500; }
+    header p { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    .cta-button { background-color: #000; color: #fff; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; text-decoration: none; animation: pulse 1.8s infinite; display: inline-block; transition: 0.3s ease; }
+    .cta-button:hover { background-color: #ffcc00; color: #000; }
+    @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 204, 0, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); } }
+    .section-title { font-size: 1.75rem; margin-bottom: 1rem; }
+    .benefits ul { list-style: none; padding-left: 1rem; }
+    .benefits li::before { content: '✅'; margin-right: 0.5rem; }
+    .visual { position: relative; }
+    .visual img { max-width: 100%; border-radius: 0; box-shadow: none; margin: 1rem 0; display: block; }
+    .badge { position: absolute; top: 10px; left: 10px; background-color: #ffcc00; color: #000; font-weight: bold; padding: 0.4rem 0.75rem; border-radius: 999px; font-size: 0.9rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .visual-image-wrapper { position: relative; display: inline-block; }
     form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
-    form input, form button { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; transition: 0.3s ease; width: 100%; }
-    form input:focus, form button:hover { outline: none; border-color: #A1C4FD; box-shadow: 0 0 8px #A1C4FD44; }
-    form button { background-color: #FF3366; border: none; color: #fff; font-weight: bold; cursor: pointer; }
-    .disclaimer { font-size: 0.9rem; color: #fff; margin-top: 0.5rem; font-weight: 600; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+    form input, form button { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; transition: 0.3s ease; }
+    form input:focus, form button:hover { outline: none; border-color: #8ec5fc; box-shadow: 0 0 8px #8ec5fc44; }
+    form button { background-color: #ffcc00; border: none; color: #000; font-weight: bold; cursor: pointer; }
+    .disclaimer { font-size: 0.85rem; color: #777; margin-top: 0.5rem; }
+    .pdpa { font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; }
+    .pdpa a { color: #8ec5fc; text-decoration: none; }
+    .pdpa a:hover { text-decoration: underline; }
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #8ec5fc; width: 0%; z-index: 999; transition: width 0.2s ease; }
-    input[name="contact"] { maxlength: 8; }
 
     @media (max-width: 768px) {
-      .flex-container { flex-direction: column; gap: 1.5rem; }
-      .fire-extinguisher-info, .visual-image-wrapper { max-width: 100%; }
-      .badge { top: 0; left: 0; transform: translate(0%, -50%); }
-      body { background-attachment: scroll; }
-    }
-
-    @media (max-width: 480px) {
       header h1 { font-size: 2rem; }
-      header p, .section-title { font-size: 1rem; }
+      header p { font-size: 1rem; }
       .cta-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
-      .fire-extinguisher-info p, .fire-extinguisher-info ul li { font-size: 0.9rem; }
+      .visual img { max-width: 100%; height: auto; }
+      .badge { top: 5px; left: 5px; font-size: 0.8rem; padding: 0.3rem 0.6rem; }
     }
   </style>
 </head>
@@ -121,88 +56,62 @@
   <div id="progress-bar"></div>
 
   <header data-aos="fade-down">
-    <h1>Protect Your Home — Breathe Easy</h1>
-    <p>Get a <strong>FREE Fire Extinguisher</strong> with your Home Insurance plan.</p>
-    <a href="#quote-form" class="cta-button">Secure Yours Now</a>
+    <h1>Drive with Confidence — and a Fresh Ride</h1>
+    <p>Unlock a <strong>FREE Aroma Diffuser</strong> when you purchase your car insurance with us.</p>
+    <a href="#quote-form" class="cta-button">Get My Freebie Now!</a>
   </header>
 
-  <section class="news-note" data-aos="fade-up">
-    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential.</p>
-  </section>
-
-  <section class="fire-stats" data-aos="fade-up">
-    <p>Singapore fire cases rose by about <strong>5%</strong> last year, with ~4,200 incidents in 2024 compared to 4,000 in 2023. Residential fires remain the top cause.</p>
-    <p>Average loss per residential fire is estimated at <strong>S$30,000–90,000</strong> — protecting your home pays off big time.</p>
+  <section class="benefits" data-aos="fade-up">
+    <h2 class="section-title">We’ve Got Your Back on the Road</h2>
+    <p>Car insurance in Singapore is mandatory — but that doesn't mean it has to be boring. Get covered for accidents, theft, and more, while enjoying flexible workshops and lightning-fast claims. Easy, breezy, fully protected.</p>
+    <ul>
+      <li>Comprehensive coverage</li>
+      <li>24/7 claims support</li>
+      <li>Save more with tailored plans</li>
+      <li>Competitive quotes, zero stress</li>
+    </ul>
   </section>
 
   <section class="visual" data-aos="fade-up">
-    <h2 class="section-title">Protect What Matters Most to You</h2>
-
-    <div class="flex-container">
-      <section class="fire-extinguisher-info">
-        <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
-        <ul>
-          <li>2kg Dry-Powder AB extinguisher</li>
-          <li>Fights wood, petrol, and electrical fires (Class A, B, C)</li>
-          <li>Sprays ~11 seconds with 3m+ reach</li>
-          <li>Nitrogen pressure for reliable use</li>
-          <li>Compact size, big power</li>
-          <li>Your go-to when fire tries to party 🔥</li>
-        </ul>
-      </section>
-
-      <div class="visual-image-wrapper" style="position: relative; display: inline-block;">
-        <span class="badge">FREE with Policy</span>
-        <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
-      </div>
+    <h2 class="section-title">✨ Luxury Scents. Anywhere. Anytime.</h2>
+    <p>Meet the <strong>QIS Cold Diffuser (worth up to $189)</strong> – your silent, sleek scent companion. No water, no heat — just pure essential oils diffused like a boss. Perfect for your car, home, office, or even your throne room (aka bathroom).</p>
+    <ul>
+      <li>💨 <strong>Cold diffusion tech</strong> = zero aroma loss</li>
+      <li>🔋 <strong>USB rechargeable</strong> & travel-ready</li>
+      <li>😌 <strong>Whisper-quiet</strong>, ultra-chic</li>
+      <li>🧴 <strong>Refillable 10ml chamber</strong></li>
+    </ul>
+    <div class="visual-image-wrapper">
+      <span class="badge">Worth $189 🔥</span>
+      <img src="https://iwanttodropout.github.io/pru_car_testing1/diffuser.png" alt="Diffuser" style="border: 0;" />
     </div>
-
-    <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
+    <p>Our sleek aroma diffuser adds that luxe, spa-like feel to your car. Yours is <strong>FREE</strong> when you purchase your insurance with us</p>
   </section>
 
   <section id="quote-form" data-aos="zoom-in">
-    <h2 class="section-title">Get Covered Instantly</h2>
+    <h2 class="section-title">Let’s Get Started!</h2>
     <form id="quoteForm">
       <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="contact" placeholder="Contact Number" required title="Enter a valid 8-digit number starting with 8 or 9" />
+      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" required title="Enter a valid 8-digit number starting with 8 or 9" />
       <input type="email" name="email" placeholder="Email Address" required title="Enter a valid email address" />
       <input type="text" name="_gotcha" style="display:none" />
-      <p style="font-size: 0.9rem; color: #fff; margin-bottom: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">By submitting this form, you agree that your personal data will be collected, used, and disclosed by us for insurance purposes, in accordance with Singapore’s PDPA.</p>
-      <button type="submit">Submit</button>
+      <p id="errorMsg" style="color: red; display: none; margin-top: 0.5rem;"></p>
+      <button id="submitButton" type="submit">Submit</button>
     </form>
     <p class="disclaimer">*We respect your privacy. No spam, ever.</p>
+    <p class="pdpa">
+      By submitting this form, you consent to the collection, use, and disclosure of your personal data in accordance with our 
+      <a href="#" target="_blank">Privacy Policy</a>, and the Personal Data Protection Act (PDPA).
+    </p>
   </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init();
-
-    document.getElementById('quoteForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      if (form._gotcha.value) return;
-      const payload = new URLSearchParams({
-        name: form.name.value.trim(),
-        contact: form.contact.value.trim(),
-        email: form.email.value.trim(),
-        source: 'HomeInsurance_Landing'
-      });
-      try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload.toString()
-        });
-        if (res.ok) { alert('Thanks! You’re on our list. We’ll reach out ASAP.'); form.reset(); } else { throw new Error('Error submitting'); }
-      } catch (err) { alert('Oops! Something went wrong. Please try again.'); console.error(err); }
-    });
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      document.getElementById('progress-bar').style.width = scrollPercent + '%';
-    });
+    window.onscroll = function () {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
 
     document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
@@ -212,10 +121,49 @@
       const distance = targetPosition - startPosition;
       const duration = 1450;
       let start = null;
-      function easeInOutQuad(t,b,c,d){t/=d/2;if(t<1)return c/2*t*t+b;t--;return -c/2*(t*(t-2)-1)+b;}
-      function animation(currentTime){if(start===null)start=currentTime;const timeElapsed=currentTime-start;const run=easeInOutQuad(timeElapsed,startPosition,distance,duration);window.scrollTo(0,run);if(timeElapsed<duration)requestAnimationFrame(animation);}
+      function easeInOutQuad(t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+      }
+      function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
       requestAnimationFrame(animation);
     });
+
+    document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new URLSearchParams({
+        name: form.name.value,
+        contact: form.contact.value,
+        email: form.email.value,
+      });
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbyoSyXU6VdmD82O0y9k73DC5dZ-U1bxXA5eLLJrUo95LKmDDiep483PniJDcGwbX3KrJw/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formData.toString(),
+        });
+        if (response.ok) {
+          alert('Thanks for signing up! We will be in touch.');
+          form.reset();
+        } else {
+          alert('Oops! Something went wrong. Try again later.');
+        }
+      } catch (error) {
+        alert('Network error, please try again.');
+      }
+    });
   </script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
