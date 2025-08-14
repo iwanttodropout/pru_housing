@@ -78,10 +78,13 @@
       margin-right: auto;
     }
     @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
+
+    /* Updated Badge Styling */
     .badge {
       position: absolute;
       top: 50%;
       left: 0;
+      transform: translate(-50%, -50%);
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -89,8 +92,17 @@
       border-radius: 999px;
       font-size: 0.9rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transform: translate(-50%, -50%);
     }
+    @media (max-width: 768px) {
+      .badge {
+        top: 8px;
+        right: 8px;
+        left: auto;
+        transform: none;
+        font-size: 0.8rem;
+      }
+    }
+
     .flex-container { display: flex; gap: 2rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto 1.5rem; }
     .fire-extinguisher-info, .fire-stats, .news-note { background-color: rgba(255,255,255,0.85); color: #333; border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .fire-extinguisher-info p { font-family: 'Roboto', sans-serif; font-weight: 500; }
@@ -105,7 +117,6 @@
     @media (max-width: 768px) {
       .flex-container { flex-direction: column; gap: 1.5rem; }
       .fire-extinguisher-info, .visual-image-wrapper { max-width: 100%; }
-      .badge { top: 50%; left: 0; transform: translate(-50%, -50%); }
       body { background-attachment: scroll; }
     }
 
