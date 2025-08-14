@@ -39,6 +39,10 @@
       font-family: 'Playfair Display', serif;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
     header p { font-size: 1.25rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
@@ -73,12 +77,11 @@
       margin-left: auto;
       margin-right: auto;
     }
-    @keyframes float { 0%,100{transform:translateY(0);}50%{transform:translateY(-10px);} }
+    @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
     .badge {
       position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate(-50%, -50%);
+      top: 10px;
+      left: 10px;
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -146,7 +149,7 @@
         </ul>
       </section>
 
-      <div class="visual-image-wrapper" style="position: relative; display: flex; justify-content: center; align-items: center;">
+      <div class="visual-image-wrapper" style="position: relative; display: inline-block;">
         <span class="badge">FREE with Policy</span>
         <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
       </div>
@@ -208,7 +211,7 @@
       const duration = 1450;
       let start = null;
       function easeInOutQuad(t,b,c,d){t/=d/2;if(t<1)return c/2*t*t+b;t--;return -c/2*(t*(t-2)-1)+b;}
-      function animation(currentTime){if(start===null)start=currentTime;const timeElapsed=currentTime-start;const run=easeInOutQuad(timeElapsed,startPosition,duration,duration);window.scrollTo(0,run);if(timeElapsed<duration)requestAnimationFrame(animation);}
+      function animation(currentTime){if(start===null)start=currentTime;const timeElapsed=currentTime-start;const run=easeInOutQuad(timeElapsed,startPosition,distance,duration);window.scrollTo(0,run);if(timeElapsed<duration)requestAnimationFrame(animation);}
       requestAnimationFrame(animation);
     });
   </script>
