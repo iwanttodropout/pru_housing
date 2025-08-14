@@ -21,37 +21,21 @@
       line-height: 1.6;
       position: relative;
     }
-
     header, section, footer {
       padding: 2rem 1rem;
       max-width: 800px;
       margin: auto;
-      position: relative;
     }
-
-    header::before, .news-note::before, .fire-stats::before, .fire-extinguisher-info::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255,255,255,0.35);
-      border-radius: 12px;
-      z-index: 0;
-    }
-
     header {
       background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
       text-align: center;
       padding: 3rem 1rem;
       font-family: 'Playfair Display', serif;
-    }
-    header h1, header p {
-      position: relative; z-index: 1;
+      border-radius: 12px;
     }
     header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
     header p { font-size: 1.25rem; margin-bottom: 1.5rem; }
     .cta-button {
-      position: relative; z-index: 1;
       background-color: #FF3366;
       color: #fff;
       padding: 0.75rem 1.5rem;
@@ -69,39 +53,49 @@
       70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); }
       100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); }
     }
-
     .section-title {
       font-size: 1.75rem;
       margin-bottom: 1rem;
       font-family: 'Playfair Display', serif;
-      position: relative; z-index: 1;
     }
 
-    .news-note, .fire-stats {
-      position: relative; z-index: 1;
-      border-radius: 12px;
+    /* Boxes */
+    .news-note { 
+      background: rgba(255, 238, 240, 0.85);
+      border-left: 4px solid #FF3366;
+      color: #333;
       padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      font-family: 'Inter', sans-serif;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
-
-    .news-note { background: rgba(255, 238, 240, 0.85); border-left: 4px solid #FF3366; }
-    .fire-stats { background: rgba(255, 243, 205, 0.85); border-left: 4px solid #ffb100; color:#664d03; }
-
+    .fire-stats { 
+      background: rgba(255, 243, 205, 0.85);
+      border-left: 4px solid #ffb100;
+      color: #333;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
     .fire-extinguisher-info {
-      background: #fff0f5;
+      background: rgba(255, 240, 245, 0.95);
       border: 2px solid #ff4d4d;
-      border-radius: 0;
+      border-radius: 12px;
       padding: 20px 25px;
       max-width: 400px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #b22222;
       box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
-      position: relative; z-index: 1;
+      flex: 1 1 300px;
     }
     .fire-extinguisher-info p { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
     .fire-extinguisher-info ul { list-style-type: disc; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; }
     .fire-extinguisher-info li { margin-bottom: 8px; }
+
+    .visual img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+    }
 
     .flex-container {
       display: flex;
@@ -111,26 +105,27 @@
       flex-wrap: wrap;
       max-width: 800px;
       margin: 0 auto 1.5rem;
-      position: relative; z-index: 1;
     }
 
-    .visual-image-wrapper {
-      position: relative;
-      display: inline-block;
-      max-width: 400px;
-      flex: 1 1 300px;
-      z-index: 1;
+    form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+    form input, form button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s ease;
     }
-    .visual-image-wrapper img { max-width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-    form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; position: relative; z-index: 1; }
-    form input, form button { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; transition: 0.3s ease; }
     form input:focus, form button:hover { outline: none; border-color: #A1C4FD; box-shadow: 0 0 8px #A1C4FD44; }
-    form button { background-color: #FF3366; border: none; color: #fff; font-weight: bold; cursor: pointer; }
-    form input[name="contact"] { max-length: 8; }
+    form button {
+      background-color: #FF3366;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .disclaimer { font-size: 0.85rem; color: #777; margin-top: 0.5rem; }
 
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #8ec5fc; width: 0%; z-index: 999; transition: width 0.2s ease; }
-
   </style>
 </head>
 <body>
@@ -143,7 +138,7 @@
   </header>
 
   <section class="news-note" data-aos="fade-up">
-    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, fire safety isn't just smart—it's essential.</p>
+    <p>In the wake of the tragic Toa Payoh HDB fire on <strong>29 July 2025</strong>, where homes were gutted and seven people—including a child and a firefighter—were hospitalized, fire safety isn't just smart—it's essential.</p>
   </section>
 
   <section class="fire-stats" data-aos="fade-up">
@@ -153,7 +148,6 @@
 
   <section class="visual" data-aos="fade-up">
     <h2 class="section-title">Protect What Matters Most to You</h2>
-
     <div class="flex-container">
       <section class="fire-extinguisher-info">
         <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
@@ -172,7 +166,6 @@
         <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
       </div>
     </div>
-
     <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
   </section>
 
@@ -180,8 +173,8 @@
     <h2 class="section-title">Get Covered Instantly</h2>
     <form id="quoteForm">
       <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" required title="Enter a valid 8-digit number starting with 8 or 9" />
-      <input type="email" name="email" placeholder="Email Address" required title="Enter a valid email address" />
+      <input type="tel" name="contact" placeholder="Contact Number" maxlength="8" required pattern="\d{8}" title="Enter a valid 8-digit number" />
+      <input type="email" name="email" placeholder="Email Address" required />
       <input type="text" name="_gotcha" style="display:none" />
       <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
         By submitting this form, you agree that your personal data will be collected, used, and disclosed by us for insurance purposes, in accordance with Singapore’s PDPA.
@@ -191,40 +184,12 @@
     <p class="disclaimer">*We respect your privacy. No spam, ever.</p>
   </section>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    document.getElementById('quoteForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-
-      if (form._gotcha.value) return;
-
-      const payload = new URLSearchParams({
-        name: form.name.value.trim(),
-        contact: form.contact.value.trim(),
-        email: form.email.value.trim(),
-        source: 'HomeInsurance_Landing'
-      });
-
-      try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload.toString()
-        });
-
-        if (res.ok) {
-          alert('Thanks! You’re on our list. We’ll reach out ASAP.');
-          form.reset();
-        } else throw new Error('Error submitting');
-      } catch (err) {
-        alert('Oops! Something went wrong. Please try again.');
-        console.error(err);
-      }
-    });
-
+    // Scroll progress
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -232,6 +197,7 @@
       document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
 
+    // Smooth scroll for CTA
     document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector('#quote-form');
@@ -240,14 +206,12 @@
       const distance = targetPosition - startPosition;
       const duration = 1450;
       let start = null;
-
       function easeInOutQuad(t, b, c, d) {
         t /= d/2;
         if (t < 1) return c/2*t*t + b;
         t--;
         return -c/2 * (t*(t-2) - 1) + b;
       }
-
       function animation(currentTime) {
         if (start === null) start = currentTime;
         const timeElapsed = currentTime - start;
@@ -256,6 +220,33 @@
         if (timeElapsed < duration) requestAnimationFrame(animation);
       }
       requestAnimationFrame(animation);
+    });
+
+    // Form submission (Google Apps Script)
+    document.getElementById('quoteForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      if (form._gotcha.value) return;
+      const payload = new URLSearchParams({
+        name: form.name.value.trim(),
+        contact: form.contact.value.trim(),
+        email: form.email.value.trim(),
+        source: 'HomeInsurance_Landing'
+      });
+      try {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbx8ugxWu26JztCKrrUZKxH7D96k9cUdEdD_3E5_GuVQcrmzpoMoASvvfMdeAmNP4Z5t/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload.toString()
+        });
+        if (res.ok) {
+          alert('Thanks! You’re on our list. We’ll reach out ASAP.');
+          form.reset();
+        } else {
+          const errorText = await res.text();
+          throw new Error(errorText || 'Error submitting');
+        }
+      } catch (err) { alert('Oops! Something went wrong. Please try again.'); console.error(err); }
     });
   </script>
 </body>
