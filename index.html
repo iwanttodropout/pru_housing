@@ -16,7 +16,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: url('https://images.unsplash.com/photo-1597686761652-36c9f4e10d95?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('https://www.straitstimes.com/singapore/tampines-hdb-blocks-storage-shed-catches-fire-no-injuries-reported') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       line-height: 1.6;
@@ -233,7 +233,7 @@
     <h2 class="section-title">Get Covered Instantly</h2>
     <form id="quoteForm">
       <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="contact" placeholder="Contact Number" maxlength="9" required pattern="^[89][0-9]{7,8}$" title="Enter a valid 8 or 9-digit Singapore number starting with 8 or 9" />
+      <input type="tel" name="contact" placeholder="Contact Number" maxlength="9" required pattern="^[89][0-9]{7}$" title="Enter a valid 8 or 9-digit Singapore number starting with 8 or 9" />
       <input type="email" name="email" placeholder="Email Address" required />
       <input type="text" name="_gotcha" style="display:none" />
       <p style="font-size: 0.9rem; color: #fff; margin-bottom: 10px;">
@@ -249,69 +249,6 @@
     AOS.init();
 
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      if (form._gotcha.value) return;
 
-      const payload = new URLSearchParams({
-        name: form.name.value.trim(),
-        contact: form.contact.value.trim(),
-        email: form.email.value.trim(),
-        source: 'HomeInsurance_Landing'
-      });
-
-      try {
-        const res = await fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload.toString()
-        });
-
-        if (res.ok) {
-          alert('Thanks! You’re on our list. We’ll reach out ASAP.');
-          form.reset();
-        } else {
-          const errorText = await res.text();
-          throw new Error(errorText || 'Error submitting');
-        }
-      } catch (err) {
-        alert('Oops! Something went wrong. Please try again.');
-        console.error(err);
-      }
-    });
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      document.getElementById('progress-bar').style.width = scrollPercent + '%';
-    });
-
-    document.querySelector('.cta-button').addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector('#quote-form');
-      const startPosition = window.pageYOffset;
-      const targetPosition = target.getBoundingClientRect().top + startPosition;
-      const distance = targetPosition - startPosition;
-      const duration = 1450;
-      let start = null;
-
-      function easeInOutQuad(t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
-      }
-
-      function animation(currentTime) {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
-      requestAnimationFrame(animation);
-    });
-  </script>
-</body>
-</html>
+::contentReference[oaicite:0]{index=0}
+ 
