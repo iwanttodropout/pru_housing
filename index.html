@@ -12,225 +12,104 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      position: relative;
-       background: url('https://raw.githubusercontent.com/iwanttodropout/pru_housing/main/jiachen-lin-AIk_5-M9Uho-unsplash.jpg') center/cover no-repeat fixed;
-    }
+/* Body + Background */
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #fff; /* bright white text */
+  position: relative;
+  background: url('https://raw.githubusercontent.com/iwanttodropout/pru_housing/main/jiachen-lin-AIk_5-M9Uho-unsplash.jpg') center/cover no-repeat fixed;
+}
 
-    /* Overlay to make text readable */
-    body::before {
-      content: '';
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background-color: rgba(255,255,255,0.50); /* adjust opacity as needed */
-      z-index: -1;
-    }
+/* Dark overlay to make text readable */
+body::before {
+  content: '';
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.35); /* darker overlay */
+  z-index: -1;
+}
 
-    header, section, footer {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
+/* Header, Sections, Footer */
+header, section, footer {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
 
-    header {
-      background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
-      text-align: center;
-      padding: 3rem 1rem;
-      font-family: 'Playfair Display', serif;
-    }
+/* Header Styles */
+header {
+  background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
 
-    header p {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
+header p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
 
-    .cta-button {
-      background-color: #FF3366;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      animation: pulse 1.8s infinite;
-      display: inline-block;
-      transition: 0.3s ease;
-    }
+/* Section Titles */
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
 
-    .cta-button:hover {
-      background-color: #ffd700;
-      color: #000;
-    }
+/* Paragraphs */
+p {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.7); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); }
-    }
+/* CTA Button */
+.cta-button {
+  background-color: #FF3366;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  animation: pulse 1.8s infinite;
+  display: inline-block;
+  transition: 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
 
-    .section-title {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      font-family: 'Playfair Display', serif;
-    }
+.cta-button:hover {
+  background-color: #ffd700;
+  color: #000;
+}
 
-    .visual img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      margin: 1rem 0;
-      animation: float 3s ease-in-out infinite;
-    }
+/* Text shadows for all headings inside sections */
+h2, h3, h4 {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: #ffd700;
-      color: #000;
-      font-weight: bold;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .visual-image-wrapper {
-      position: relative;
-      display: inline-block;
-      max-width: 400px;
-      flex: 1 1 300px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    form input, form button {
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      transition: 0.3s ease;
-    }
-
-    form input:focus, form button:hover {
-      outline: none;
-      border-color: #A1C4FD;
-      box-shadow: 0 0 8px #A1C4FD44;
-    }
-
-    form button {
-      background-color: #FF3366;
-      border: none;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .disclaimer {
-      font-size: 0.85rem;
-      color: #777;
-      margin-top: 0.5rem;
-    }
-
-    .news-note {
-      font-size: 0.9rem;
-      color: #555;
-      margin: 1rem auto;
-      padding: 0.75rem 1rem;
-      background: #ffeef0;
-      border-left: 4px solid #ff3366;
-      max-width: 800px;
-    }
-
-    .fire-stats {
-      background:#fff3cd;
-      border-left:4px solid #ffb100;
-      color:#664d03;
-      max-width: 800px;
-      margin: 1rem auto;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .fire-stats p {
-      margin-bottom: 0.5rem;
-    }
-
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: #8ec5fc;
-      width: 0%;
-      z-index: 999;
-      transition: width 0.2s ease;
-    }
-
-    .fire-extinguisher-info {
-      background: #fff8f0;
-      border: 2px solid #ff4d4d;
-      border-radius: 0;
-      padding: 20px 25px;
-      max-width: 400px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #b22222;
-      box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
-      margin: 0;
-      flex: 1 1 300px;
-    }
-
-    .fire-extinguisher-info p {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .fire-extinguisher-info ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .fire-extinguisher-info li {
-      margin-bottom: 8px;
-    }
-
-    .flex-container {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
-
+/* Fire Stats / News Notes */
+.fire-stats, .news-note, .fire-extinguisher-info {
+  background-color: rgba(255,255,255,0.85);
+  color: #333;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
     /* Limit contact input to 8 digits */
     input[name="contact"] {
       maxlength: 8;
