@@ -77,7 +77,7 @@
     .badge {
       position: absolute;
       top: 10px;
-      right: 10px;
+      left: -10px;
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -193,7 +193,7 @@
       const duration = 1450;
       let start = null;
       function easeInOutQuad(t,b,c,d){t/=d/2;if(t<1)return c/2*t*t+b;t--;return -c/2*(t*(t-2)-1)+b;}
-      function animation(currentTime){if(start===null)start=currentTime;const timeElapsed=currentTime-start;const run=easeInOutQuad(timeElapsed,startPosition,distance,duration);window.scrollTo(0,run);if(timeElapsed<duration)requestAnimationFrame(animation);}
+      function animation(currentTime){if(start===null)start=currentTime;const timeElapsed=currentTime-start;const run=easeInOutQuad(timeElapsed,startPosition,duration,duration);window.scrollTo(0,run);if(timeElapsed<duration)requestAnimationFrame(animation);}
       requestAnimationFrame(animation);
     });
   </script>
