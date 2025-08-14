@@ -16,6 +16,7 @@
       color: #fff;
       position: relative;
       background: url('https://raw.githubusercontent.com/iwanttodropout/pru_housing/main/jiachen-lin-AIk_5-M9Uho-unsplash.jpg') center/cover no-repeat fixed;
+      background-attachment: scroll;
     }
     body::before {
       content: '';
@@ -69,8 +70,8 @@
     p, h2, h3, h4 { text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
     .visual img {
       max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 0;
+      box-shadow: none;
       margin: 1rem 0;
       animation: float 3s ease-in-out infinite;
       display: block;
@@ -81,7 +82,7 @@
     .badge {
       position: absolute;
       top: 10px;
-      left: 10px;
+      left: 0;
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -89,6 +90,7 @@
       border-radius: 999px;
       font-size: 0.9rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transform: translateX(-50%);
     }
     .flex-container { display: flex; gap: 2rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto 1.5rem; }
     .fire-extinguisher-info, .fire-stats, .news-note { background-color: rgba(255,255,255,0.85); color: #333; border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -104,7 +106,7 @@
     @media (max-width: 768px) {
       .flex-container { flex-direction: column; gap: 1.5rem; }
       .fire-extinguisher-info, .visual-image-wrapper { max-width: 100%; }
-      .badge { top: 10px; left: 10px; transform: none; }
+      .badge { top: 10px; left: 0; transform: translateX(-50%); }
     }
 
     @media (max-width: 480px) {
