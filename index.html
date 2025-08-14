@@ -79,12 +79,13 @@
     }
     @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
 
-    /* Updated Badge Styling */
+    /* Badge fixed top-right */
     .badge {
       position: absolute;
-      top: 50%;               /* vertically centered */
-      left: 10px;             /* distance from left edge of image */
-      transform: translateY(-50%); /* only vertical centering */
+      top: 8px;       /* distance from top edge */
+      right: 8px;     /* distance from right edge */
+      left: auto;
+      transform: none;
       background-color: #ffd700;
       color: #000;
       font-weight: bold;
@@ -92,15 +93,6 @@
       border-radius: 999px;
       font-size: 0.9rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    @media (max-width: 768px) {
-      .badge {
-        top: 8px;
-        right: 8px;
-        left: auto;
-        transform: none;
-        font-size: 0.8rem;
-      }
     }
 
     .flex-container { display: flex; gap: 2rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto 1.5rem; }
@@ -118,6 +110,7 @@
       .flex-container { flex-direction: column; gap: 1.5rem; }
       .fire-extinguisher-info, .visual-image-wrapper { max-width: 100%; }
       body { background-attachment: scroll; }
+      .badge { font-size: 0.8rem; }
     }
 
     @media (max-width: 480px) {
