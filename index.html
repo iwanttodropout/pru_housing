@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
-    /* Your existing CSS unchanged */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
@@ -102,6 +101,7 @@
   <script>
     AOS.init();
 
+    // Form submission
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
@@ -110,7 +110,8 @@
       const payload = new URLSearchParams({
         name: form.name.value.trim(),
         contact: form.contact.value.trim(),
-        email: form.email.value.trim()
+        email: form.email.value.trim(),
+        source: 'HomeInsurance_Landing'
       });
 
       try {
@@ -132,6 +133,7 @@
       }
     });
 
+    // Scroll progress bar
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -139,6 +141,7 @@
       document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
 
+    // Smooth scroll to form
     document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector('#quote-form');
