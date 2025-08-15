@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
-    /* Your existing CSS is unchanged */
+    /* Your existing CSS unchanged */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
@@ -18,83 +18,19 @@
       background: url('https://raw.githubusercontent.com/iwanttodropout/pru_housing/main/jiachen-lin-AIk_5-M9Uho-unsplash.jpg') center/cover no-repeat;
       background-attachment: scroll;
     }
-    body::before {
-      content: '';
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background-color: rgba(0,0,0,0.45);
-      z-index: -1;
-    }
-    header, section, footer {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    header {
-      background: linear-gradient(135deg, #FFD6E0, #A1C4FD);
-      text-align: center;
-      padding: 3rem 1rem;
-      font-family: 'Playfair Display', serif;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    body::before { content: ''; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.45); z-index: -1; }
+    header, section, footer { padding: 2rem 1rem; max-width: 800px; margin: auto; }
+    header { background: linear-gradient(135deg, #FFD6E0, #A1C4FD); text-align: center; padding: 3rem 1rem; font-family: 'Playfair Display', serif; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; }
     header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
     header p { font-size: 1.25rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
-    .cta-button {
-      background-color: #FF3366;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      animation: pulse 1.8s infinite;
-      display: inline-block;
-      transition: 0.3s ease;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
+    .cta-button { background-color: #FF3366; color: #fff; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; cursor: pointer; text-decoration: none; animation: pulse 1.8s infinite; display: inline-block; transition: 0.3s ease; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
     .cta-button:hover { background-color: #ffd700; color: #000; }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.7); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); }
-    }
+    @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,215,0,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0); } }
     .section-title { font-size: 1.75rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
     p, h2, h3, h4 { text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
-    .visual img {
-      max-width: 100%;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 1rem 0;
-      animation: float 3s ease-in-out infinite;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .visual img { max-width: 100%; border-radius: 0; box-shadow: none; margin: 1rem 0; animation: float 3s ease-in-out infinite; display: block; margin-left: auto; margin-right: auto; }
     @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
-
-    .badge {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      left: auto;
-      transform: none;
-      background-color: #ffd700;
-      color: #000;
-      font-weight: bold;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
+    .badge { position: absolute; top: 8px; right: 8px; left: auto; transform: none; background-color: #ffd700; color: #000; font-weight: bold; padding: 0.4rem 0.75rem; border-radius: 999px; font-size: 0.9rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
     .flex-container { display: flex; gap: 2rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto 1.5rem; }
     .fire-extinguisher-info, .fire-stats, .news-note { background-color: rgba(255,255,255,0.85); color: #333; border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .fire-extinguisher-info p { font-family: 'Roboto', sans-serif; font-weight: 500; }
@@ -105,20 +41,8 @@
     .disclaimer { font-size: 0.9rem; color: #fff; margin-top: 0.5rem; font-weight: 600; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #8ec5fc; width: 0%; z-index: 999; transition: width 0.2s ease; }
     input[name="contact"] { maxlength: 8; }
-
-    @media (max-width: 768px) {
-      .flex-container { flex-direction: column; gap: 1.5rem; }
-      .fire-extinguisher-info, .visual-image-wrapper { max-width: 100%; }
-      body { background-attachment: scroll; }
-      .badge { font-size: 0.8rem; }
-    }
-
-    @media (max-width: 480px) {
-      header h1 { font-size: 2rem; }
-      header p, .section-title { font-size: 1rem; }
-      .cta-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
-      .fire-extinguisher-info p, .fire-extinguisher-info ul li { font-size: 0.9rem; }
-    }
+    @media (max-width: 768px) { .flex-container { flex-direction: column; gap: 1.5rem; } .fire-extinguisher-info, .visual-image-wrapper { max-width: 100%; } body { background-attachment: scroll; } .badge { font-size: 0.8rem; } }
+    @media (max-width: 480px) { header h1 { font-size: 2rem; } header p, .section-title { font-size: 1rem; } .cta-button { padding: 0.5rem 1rem; font-size: 0.9rem; } .fire-extinguisher-info p, .fire-extinguisher-info ul li { font-size: 0.9rem; } }
   </style>
 </head>
 <body>
@@ -141,7 +65,6 @@
 
   <section class="visual" data-aos="fade-up">
     <h2 class="section-title">Protect What Matters Most to You</h2>
-
     <div class="flex-container">
       <section class="fire-extinguisher-info">
         <p>Small but mighty 2kg extinguisher that handles most fires fast and hassle-free.</p>
@@ -154,13 +77,11 @@
           <li>Your go-to when fire tries to party 🔥</li>
         </ul>
       </section>
-
       <div class="visual-image-wrapper" style="position: relative; display: inline-block;">
         <span class="badge">FREE with Policy</span>
         <img src="https://github.com/iwanttodropout/pru_housing/blob/main/width-547.png?raw=true" alt="Free Fire Extinguisher with Home Insurance" />
       </div>
     </div>
-
     <p>Grace your home with peace of mind. When fire safety meets comfort—it's a vibe.</p>
   </section>
 
