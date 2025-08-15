@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
-    /* Your existing CSS unchanged */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
@@ -102,6 +101,7 @@
   <script>
     AOS.init();
 
+    // Form submission
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
@@ -122,10 +122,10 @@
         });
 
         if (res.ok) {
-          alert('Thanks! You’re on our list. We’ll reach out ASAP.');
+          alert(`Hey ${form.name.value}! Thanks for signing up. We'll reach out ASAP.`);
           form.reset();
         } else {
-          throw new Error('Error submitting');
+          throw new Error('Error submitting the form.');
         }
       } catch (err) {
         alert('Oops! Something went wrong. Please try again.');
@@ -133,6 +133,7 @@
       }
     });
 
+    // Scroll progress bar
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -140,6 +141,7 @@
       document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
 
+    // Smooth scroll for CTA button
     document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector('#quote-form');
@@ -148,8 +150,22 @@
       const distance = targetPosition - startPosition;
       const duration = 1450;
       let start = null;
-      function easeInOutQuad(t,b,c,d){t/=d/2;if(t<1)return c/2*t*t+b;t--;return -c/2*(t*(t-2)-1)+b;}
-      function animation(currentTime){if(start===null)start=currentTime;const timeElapsed=currentTime-start;const run=easeInOutQuad(timeElapsed,startPosition,distance,duration);window.scrollTo(0,run);if(timeElapsed<duration)requestAnimationFrame(animation);}
+
+      function easeInOutQuad(t,b,c,d){
+        t /= d/2;
+        if(t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2*(t*(t-2) - 1) + b;
+      }
+
+      function animation(currentTime){
+        if(start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if(timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
       requestAnimationFrame(animation);
     });
   </script>
