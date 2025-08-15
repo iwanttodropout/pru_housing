@@ -101,11 +101,10 @@
   <script>
     AOS.init();
 
-    // Form submission
     document.getElementById('quoteForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const form = e.target;
-      if (form._gotcha.value) return;
+      if (form._gotcha.value) return; // bot check
 
       const payload = new URLSearchParams({
         name: form.name.value.trim(),
@@ -133,7 +132,6 @@
       }
     });
 
-    // Scroll progress bar
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -141,7 +139,6 @@
       document.getElementById('progress-bar').style.width = scrollPercent + '%';
     });
 
-    // Smooth scroll to form
     document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector('#quote-form');
